@@ -1,6 +1,7 @@
 import React from 'react';
 
 import SideNavMenu from '../components/SideNavMenu'
+import logo from '../images/logo.png'
 
 import { Layout, Menu } from 'antd';
 const { Header, Content, Sider } = Layout;
@@ -9,7 +10,9 @@ const PapiroLayout = (props) => {
     return (
         <Layout>
             <Header className="header">
-                <div className="logo" />
+                <div className="logo" >
+                    <img src={logo} alt="Papiro Documentação de APIs"/>
+                </div>
                 <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
                 <Menu.Item key="1">nav 1</Menu.Item>
                 <Menu.Item key="2">nav 2</Menu.Item>

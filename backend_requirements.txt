@@ -1,5 +1,6 @@
 Django
 mysqlclient
-djangorestframework
 markdown
+djangorestframework
 django-filter
+django-cors-headers

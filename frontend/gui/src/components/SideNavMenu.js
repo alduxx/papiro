@@ -1,44 +1,27 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 import { Menu } from 'antd';
-import { MailOutlined, ApiTwoTone } from '@ant-design/icons';
+import { ApiTwoTone } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
 class SideNavMenu extends Component {
+
     state = {
-        apis: [
-            {
-                id: 1,
-                name: "Brasilseg",
-                services: [
-                    {
-                        id: 1,
-                        name: "consulta"
-                    },
-                    {
-                        id: 2,
-                        name: "contrata"
-                    }
+        apis: [ ]
+    }
 
-                ]
-            }, 
-            {
-                id: 2,
-                name: "Brasilprev",
-                services: [
-                    {
-                        id: 3,
-                        name: "lista"
-                    },
-                    {
-                        id: 4,
-                        name: "apaga"
-                    }
+    componentDidMount() {
+        let url = "http://127.0.0.1:8888/api/rest/";
 
-                ]
-            }, 
-        ]
+        axios.get(url)
+            .then( res => {
+                this.setState({
+                    apis: res.data
+                });
+                console.log(res.data);
+            });
     }
 
     render(){
@@ -47,7 +30,7 @@ class SideNavMenu extends Component {
                 mode="inline"
                 defaultSelectedKeys={['1']}
                 defaultOpenKeys={['1']}
-                theme="dark"
+                theme="light"
                 style={{ height: '100%', borderRight: 0 }}
             >
                 {
@@ -61,13 +44,13 @@ class SideNavMenu extends Component {
                             }
                             icon={<ApiTwoTone />}
                         >
-                            {
+                            {/*
                                 api.services.map((service) => (
                                     <Menu.Item key={service.id}>
                                         {service.name}
                                     </Menu.Item>
                                 ))
-                            }
+                            */}
                         </SubMenu>
                     ))
                 }
