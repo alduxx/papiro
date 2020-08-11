@@ -10,8 +10,7 @@ class ApiModelTests(TestCase):
 
     def test_api_was_created(self):
         api = Api(name='Example',
-                  description='An example api for testing purposes')
-        api.save()
+                  description='An example api for testing purposes').save()
 
         api_list = Api.objects.all()
 
